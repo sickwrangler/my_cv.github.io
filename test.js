@@ -1,4 +1,7 @@
-var coll = document.getElementsByClassName("collapsible");
+
+document.addEventListener('DOMContentLoaded', function() {
+  debugger;
+  var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
@@ -12,3 +15,5 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 } 
+}, false);
+
