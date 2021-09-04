@@ -1,5 +1,9 @@
 
 /* || GENERAL STYLES */
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+}
 p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
@@ -33,10 +37,7 @@ ul{
 li{
     margin: 10px 0;
 }
-button{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.5rem;
-}
+
 
 /* || Header and Main Navigation */
 
