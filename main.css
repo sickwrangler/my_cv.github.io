@@ -2,15 +2,15 @@
 /* || GENERAL STYLES */
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
-    font-size:1.8rem;
+    font-size:1.2rem;
 }
 .techStack{
-font-size: 1.5rem;
+font-size: 1rem;
 }
 h1{
     color:black;
@@ -30,12 +30,9 @@ h4{
 h1, h2, h3, h4 {
     font-family: Tahoma;
 }
-ul{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.5rem;
-}
+
 li{
-    margin: 10px 0;
+    margin: 1rem 0;
 }
 
 
