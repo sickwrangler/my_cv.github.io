@@ -1,6 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-  debugger;
   var coll = document.getElementsByClassName("collapsible");
 var i;
 
