@@ -113,3 +113,14 @@ button{
   overflow: hidden;
   background-color: #f1f1f1;
 } 
+
+
+
+
+ /************Focus module************/ 
+ *:focus {
+   color: black;
+   background-color: cyan;
+   box-shadow:0 -2px cyan, 0 4px black;
+   text-decoration: none;
+ }
