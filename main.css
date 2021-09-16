@@ -48,7 +48,15 @@ button{
   margin-inline-end: 0.2rem;
 }
 /* || Header and Main Navigation */
+.headFloatLeft{
+  width: 60%; 
+  float:left;
+}
 
+.headFloatRight{
+  width: 40%; 
+  float:right
+}
 
 /*-----HERE I SHALL BEGIN THE GRID CSS STYLE -----*/
 .container {
@@ -70,6 +78,7 @@ button{
     background: white;
     grid-area: header;
     text-align: center;
+    position: relative;
   }
   .cell-2 {
     background: lightgrey;
@@ -146,3 +155,30 @@ button{
   height: 80%;
   filter: contrast(140%);
  }
+
+
+ /************Moving eyes module************/ 
+.containerEyes {
+  position: absolute;
+top: 190px;
+left: 345px;
+z-index: 1;
+}
+.eye {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background:white;
+}
+.eye:after { /*pupil*/
+  position: absolute;
+  bottom: 17px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  content: " ";
+}
