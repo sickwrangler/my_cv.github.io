@@ -108,6 +108,8 @@ button{
   border: none;
   text-align: left;
   outline: none;
+  border-radius: 1rem;
+  margin: 0.2rem 0;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -132,4 +134,15 @@ button{
    background-color: cyan;
    box-shadow:0 -2px cyan, 0 4px black;
    text-decoration: none;
+   outline:black solid 0.1rem;
+ }
+
+
+
+ /************Images************/ 
+
+.paddyPalug {
+  width: 80%;
+  height: 80%;
+  filter: contrast(140%);
  }
