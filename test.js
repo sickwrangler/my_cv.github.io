@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 $(document).ready(function () {
 
   $(".container").mousemove(function (event) {
+    debugger;
     var eye = $(".eye");
     var x = (eye.offset().left) + (eye.width() / 2);
     var y = (eye.offset().top) + (eye.height() / 2);
