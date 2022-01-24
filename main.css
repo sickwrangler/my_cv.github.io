@@ -64,6 +64,8 @@ button{
 .topnav {
   background-color:lightgrey;
   overflow: hidden;
+  z-index: 2;
+  position: sticky;
 }
 
 /* Style the links inside the navigation bar */
@@ -187,7 +189,6 @@ button{
   width: 70vh;
   position: absolute;
   left:22vh;
-
  }
 
 
@@ -222,3 +223,12 @@ button{
 }
 
 
+/******* Media queries ******/
+
+@media (max-width: 1000px) {
+	.headFloatRight {
+		display: block;
+    margin-left: 50vh;
+    margin-right: 50vh;
+	}
+}
