@@ -1,6 +1,11 @@
 window.addEventListener("load", () => {
   let long;
   let lat;
+  let temperatureDescription = document.querySelector(
+    ".temperature-description"
+  );
+  let temperatureDegree = document.querySelector(".temperature-degree");
+  let locationTimeZone = document.querySelector(".location-timezone");
   const apiKey = "b9e4b4b7dc24fb6e69ade13aa07cb9ad";
 
   if (navigator.geolocation) {
@@ -19,6 +24,12 @@ window.addEventListener("load", () => {
         })
         .then((data) => {
           console.log(data);
+          const { temp } = data.main - 273.15;
+          const { description } = data.weather[0];
+          //set DOM elements from the API
+          temperatureDegree.textContent = temp;
+          temperatureDescription.textContent = description;
+          locationTimeZone.textContent = data.name;
         });
     });
   } else {
