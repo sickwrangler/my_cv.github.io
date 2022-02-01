@@ -10,8 +10,7 @@ window.addEventListener("load", () => {
       console.log(lat);
 
       const proxy = "https://cors-anywhere.herokuapp.com/corsdemo";
-      const api =
-        "https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID={b9e4b4b7dc24fb6e69ade13aa07cb9ad}";
+      const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID={b9e4b4b7dc24fb6e69ade13aa07cb9ad}`;
 
       fetch(api)
         .then((response) => {
