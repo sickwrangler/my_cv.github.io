@@ -27,12 +27,13 @@ window.addEventListener("load", () => {
           debugger;
           //- 273.15
           let { temp } = data.main;
+          let location = data.name;
           temp = (temp - 273.15).toFixed(2);
           const { description } = data.weather[0];
           //set DOM elements from the API
           temperatureDegree.textContent = temp;
           temperatureDescription.textContent = description;
-          locationTimeZone.textContent = data.name;
+          locationTimeZone.textContent = location;
         });
     });
   } else {
