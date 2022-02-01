@@ -6,6 +6,7 @@ window.addEventListener("load", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
+      console.log("${lat} + ${lon}");
 
       const proxy = "https://cors-anywhere.herokuapp.com/corsdemo";
       const api =
