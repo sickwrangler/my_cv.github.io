@@ -24,6 +24,7 @@ window.addEventListener("load", () => {
         })
         .then((data) => {
           console.log(data);
+          debugger;
           //- 273.15
           const { temp } = data.main;
           temp = temp - 273.15;
