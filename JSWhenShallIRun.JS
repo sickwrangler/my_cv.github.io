@@ -12,10 +12,7 @@ window.addEventListener("load", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
-      console.log(long);
-      console.log(lat);
 
-      const proxy = "https://cors-anywhere.herokuapp.com/corsdemo";
       const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
 
       fetch(api)
@@ -33,7 +30,9 @@ window.addEventListener("load", () => {
           //set DOM elements from the API
           temperatureDegree.textContent = temp;
           temperatureDescription.textContent = description;
-          locationTimeZone.textContent = location;
+          if (locationTimeZone) {
+            locationTimeZone.textContent = location;
+          }
         });
     });
   } else {
