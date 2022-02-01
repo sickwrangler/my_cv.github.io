@@ -26,6 +26,7 @@ window.addEventListener("load", () => {
           console.log(data);
           //- 273.15
           const { temp } = data.main;
+          temp = temp - 273.15;
           const { description } = data.weather[0];
           //set DOM elements from the API
           temperatureDegree.textContent = temp;
