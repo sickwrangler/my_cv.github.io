@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
   let long;
   let lat;
+  const apiKey = "b9e4b4b7dc24fb6e69ade13aa07cb9ad";
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -10,7 +11,7 @@ window.addEventListener("load", () => {
       console.log(lat);
 
       const proxy = "https://cors-anywhere.herokuapp.com/corsdemo";
-      const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID={b9e4b4b7dc24fb6e69ade13aa07cb9ad}`;
+      const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
 
       fetch(api)
         .then((response) => {
