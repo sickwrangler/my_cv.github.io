@@ -20,19 +20,18 @@ window.addEventListener("load", () => {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
-          debugger;
-          //- 273.15
           let { temp } = data.main;
           let location = data.name;
           temp = (temp - 273.15).toFixed(2);
-          const { description } = data.weather[0];
+          const { description, icon } = data.weather[0];
           //set DOM elements from the API
           temperatureDegree.textContent = temp;
           temperatureDescription.textContent = description;
           if (locationTimeZone) {
             locationTimeZone.textContent = location;
           }
+          let iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
+          $("#wicon").attr("src", iconurl);
         });
     });
   } else {
