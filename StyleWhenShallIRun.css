@@ -10,8 +10,16 @@ body {
   color: white;
 }
 
+.location {
+  border: 3px solid aliceblue;
+  border-radius: 10px;
+  margin: 5px;
+  padding-left: 10px;
+}
+
 .location,
-.temperature {
+.temperature,
+.running {
   height: 30vh;
   width: 50%;
   display: flex;
@@ -40,4 +48,7 @@ body {
 
 .time-to-go {
   color: whitesmoke;
+  border: 3px solid aliceblue;
+  border-radius: 100px;
+  padding: 0 10px;
 }
