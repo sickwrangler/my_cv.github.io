@@ -1,7 +1,13 @@
+
+
 window.addEventListener("load", () => {
   //instantiate variables needed.
   let long;
   let lat;
+  let dateTime = new Date();
+  let currentHour = dateTime.getHours();
+  let hoursLeftInDay = 24 - currentHour;
+  console.log(currentHour, hoursLeftInDay);
   let temperatureDescription = document.querySelector(
     ".temperature-description"
   );
@@ -54,7 +60,7 @@ window.addEventListener("load", () => {
           let day = [];
 
           //Loop through each hour for 24 hours. Look to improve by setting it based upon how many hours left in the day.
-          for (var i = 0; i < 23; i++) {
+          for (var i = 0; i < hoursLeftInDay; i++) {
             let { dt, feels_like, pop, wind_speed, clouds } =
               dataForecast.hourly[i];
             let { sunrise, sunset } = dataForecast.daily[0];
