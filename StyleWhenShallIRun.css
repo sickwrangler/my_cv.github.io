@@ -15,8 +15,8 @@ color:white;
     overflow: hidden;
     z-index: 2;
     position: relative;
-    top: -10vh;
-    width: 80%;
+    top: -8vh;
+    width: 92%;
   }
 
   /*Weather specific items*/
@@ -60,4 +60,15 @@ color:white;
 
 .degree-section h2 {
     font-size: 4rem;
+}
+
+
+/*CHART*/
+#chart {
+    width:600px !important;
+    height:400px !important;
+}
+
+.chart-wrapper {
+    background-color: white;
 }
