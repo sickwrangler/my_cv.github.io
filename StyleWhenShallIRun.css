@@ -1,67 +1,74 @@
-/************When shall I run?************/
-
-body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
-  font-family: sans-serif;
-  color: white;
+ /************When shall I run?************/ 
+body{ 
+height: 100vh;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+font-family: sans-serif;
+color:white;
 }
 
 .topnav {
-  background-color: lightgrey;
-  overflow: hidden;
-  z-index: 2;
-  position: relative;
-  top: -10vh;
+    background-color: lightgrey;
+    overflow: hidden;
+    z-index: 2;
+    position: relative;
+    top: -8vh;
+    width: 92%;
+  }
 
-  width: 80%;
-}
+  /*Weather specific items*/
 
-/*Weather specific items*/
-
-.location {
-  border: 3px solid aliceblue;
-  border-radius: 10px;
-  margin: 5px;
-  padding-left: 10px;
-}
-
-.location,
-.temperature,
-.running {
-  height: 30vh;
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.location, 
+.temperature {
+    width: 50%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .temperature {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .degree-section {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.running {
+    display: inline-flex;
+}
+
+.running>h3 {
+    margin-right: 2rem;
+}
+
+.running .time-to-go {
+    border: 2px solid aliceblue;
+
 }
 
 .degree-section span {
-  margin: 0.8rem;
-  font-size: 3rem;
+    margin: 0.8rem;
+    font-size: 3rem;
 }
 
 .degree-section h2 {
-  font-size: 4rem;
+    font-size: 4rem;
 }
 
-.time-to-go {
-  color: whitesmoke;
-  border: 3px solid aliceblue;
-  border-radius: 100px;
-  padding: 0 10px;
+
+/*CHART*/
+#chart {
+    width:600px !important;
+    height:400px !important;
+}
+
+.chart-wrapper {
+    background-color: white;
 }

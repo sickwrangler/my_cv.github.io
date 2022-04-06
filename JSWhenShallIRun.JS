@@ -1,7 +1,15 @@
+
+
 window.addEventListener("load", () => {
   //instantiate variables needed.
+  let hourArray = [];
+  let tempArray = [];
   let long;
   let lat;
+  let dateTime = new Date();
+  let currentHour = dateTime.getHours();
+  let hoursLeftInDay = 24 - currentHour;
+  console.log(currentHour, hoursLeftInDay);
   let temperatureDescription = document.querySelector(
     ".temperature-description"
   );
@@ -54,8 +62,8 @@ window.addEventListener("load", () => {
           let day = [];
 
           //Loop through each hour for 24 hours. Look to improve by setting it based upon how many hours left in the day.
-          for (var i = 0; i < 23; i++) {
-            let { dt, feels_like, pop, wind_speed, clouds } =
+          for (var i = 0; i < hoursLeftInDay; i++) {
+            let { dt, feels_like, pop, wind_speed, clouds, temp } =
               dataForecast.hourly[i];
             let { sunrise, sunset } = dataForecast.daily[0];
 
@@ -69,6 +77,10 @@ window.addEventListener("load", () => {
             let score = sun + feels_like - pop - wind_speed - clouds;
             //Push the score and hour into a new array.
             day.push({ score: score, hour: dt });
+            //Push temperature into array for chart use
+            tempArray.push(temp);
+            //Push hour into array for Chart use
+            hourArray.push(currentHour + i );
           }
           //Find the max score
           let bestScore = Math.max.apply(
@@ -86,10 +98,55 @@ window.addEventListener("load", () => {
           const bestHourDateTime = new Date(milliSeconds);
           const humanBestDate = bestHourDateTime.toLocaleTimeString();
           bestTimeToGo.textContent = humanBestDate;
+
+//CHART TIME
+const ctx = document.getElementById('chart').getContext('2d');
+const myChart = new Chart(ctx, {
+    
+    type: 'line',
+    data: {
+        labels: hourArray,
+        datasets: [{
+            label: 'Temperature C',
+            data: tempArray,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+          
         });
     });
     //Error handling if no geolocation is given
   } else {
     h1.textContent = "not working because Geolocation is disabled";
   }
+
+  
 });
+
+
+
