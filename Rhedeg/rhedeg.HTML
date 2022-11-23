@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width" />
+    <title>Rhyedeg</title>
+    <link rel="stylesheet" type="text/css" href="rhedeg.css" />
+    </head>
+
+    <body> 
+        
+        <div class="wrapper">
+            <h1 class="title"> Rhydeg </h1>
+                <fieldset>
+                    <legend>What distance are you training for?</legend>
+                    <div>
+                        <input type="radio" id="5k" name="raceDistance" value="5K">
+                        <label for="5k">5K</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="10k" name="raceDistance" value="10K">
+                        <label for="10k">10K</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="half" name="raceDistance" value="half">
+                        <label for="half">Half marathon</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="marathon" name="raceDistance" value="marathon">
+                        <label for="marathon">Marathon</label>
+                    </div>
+                </fieldset>
+            <label for="age">What is your age?</label>
+            <input type="number" id="age" required>
+            <label for="currentTime">What is your current predicted finish time?</label>
+            <input type="time" id="currentTime" required>
+            <label for="goalTime">What is your goal finish time?</label>
+            <input type="time" id="goalTime" required>
+            <button href="./Paces/paces.html">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>
