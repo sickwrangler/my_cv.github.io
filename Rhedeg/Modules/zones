@@ -1,0 +1,11 @@
+//load in data from first page. 
+window.onload=function(){
+    console.log(localStorage.getItem("age"));
+
+const age = localStorage.getItem("age");
+
+//Max heart rate 
+const maxHeartrate = a => 211 - 0.64 * a;
+console.log(maxHeartrate(age));
+
+}

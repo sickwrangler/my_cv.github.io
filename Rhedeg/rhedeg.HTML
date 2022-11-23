@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Rhyedeg</title>
     <link rel="stylesheet" type="text/css" href="rhedeg.css" />
+    <script src="rhedeg.js"></script>
     </head>
 
     <body> 
@@ -33,11 +34,13 @@
             <label for="age">What is your age?</label>
             <input type="number" id="age" required>
             <label for="currentTime">What is your current predicted finish time?</label>
-            <input type="time" id="currentTime" required>
+            <input type="time" id="currentTime" step="2" required>
             <label for="goalTime">What is your goal finish time?</label>
-            <input type="time" id="goalTime" required>
-            <button href="./Paces/paces.html">Submit</button>
+            <input type="time" id="goalTime" step="2" required>
+            <button id="paces">See your paces and zones</button>
+            <button onclick="window.location='./Plan/plan.html'">Plan your week</button>
             </div>
         </div>
     </body>
 </html>
+<!-- -->
