@@ -33,19 +33,19 @@ const ageField = document.getElementById('age').value
     console.log(age);
  }
 
- //What is your age data
-const predictedField = document.getElementById('currentTime').value
-if(predictedField){ 
-   predicted = predictedField;
-   localStorage.setItem("predicted", predicted)
-   console.log(predicted);
-}
 
-//What is your age data
-const goalField = document.getElementById('goalTime').value
+//What is your goal time
+const goalField = document.getElementById('goalTime').value;
  if(goalField){ 
-    goal = goalField;
+    goal = timeToSeconds(goalField);
     localStorage.setItem("goal", goal)
     console.log(goal);
  }
 };
+
+
+function timeToSeconds (timestr){ 
+const a = timestr.split(':');
+const result = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); 
+return result;
+}
