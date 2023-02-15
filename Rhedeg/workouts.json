@@ -1,0 +1,29 @@
+{
+    "workouts": [
+        {
+            "name": "400s",
+            "type": "speed",
+            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
+            "stress": 7
+        },
+         {
+            "name": "800s",
+            "type": "speed",
+            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
+            "stress": 7
+        },
+        {
+            "name": "Rolling 200s",
+            "type": "speed",
+            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
+            "stress": 7
+        }
+        ,
+        {
+            "name": "Rolling 200s",
+            "type": "speed",
+            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
+            "stress": 7
+        }
+    ]
+}

@@ -43,6 +43,16 @@ document.getElementById("zone3pace").setHTML(racePace(goal * (mod + 0.2), race)+
 document.getElementById("zone4pace").setHTML(racePace(goal * (mod + 0.05), race)+" - "+ racePace(goal * (mod + 0.1), race));
 document.getElementById("zone5pace").setHTML(racePace(goal * (mod - 0.1), race)+" - "+ racePace(goal * (mod - 0), race));
 
+//return workouts from JSON 
+
+fetch("/Rhedeg/workouts.json")
+.then(response => response.json())
+.then(data => {
+    console.log(data.workouts[0].name);
+    document.getElementById("zone1_workout_name").innerText = data.workouts[0].name
+    document.getElementById("zone1_workout_summary").innerText = data.workouts[0].summary
+})
+
 
 }
 
