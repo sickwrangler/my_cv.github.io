@@ -38,19 +38,63 @@ mod = 0.86;
 }
 //zone pace
 document.getElementById("zone1pace").setHTML(racePace(goal * (mod + 0.45), race) + " - " + racePace(goal * (mod + 0.5), race));
-document.getElementById("zone2pace").setHTML(racePace(goal * (mod + 0.35), race) + " - "+ racePace(goal * (mod + 0.43), race));
-document.getElementById("zone3pace").setHTML(racePace(goal * (mod + 0.2), race)+" - "+ racePace(goal * (mod + 0.27), race));
-document.getElementById("zone4pace").setHTML(racePace(goal * (mod + 0.05), race)+" - "+ racePace(goal * (mod + 0.1), race));
-document.getElementById("zone5pace").setHTML(racePace(goal * (mod - 0.1), race)+" - "+ racePace(goal * (mod - 0), race));
+document.getElementById("zone2pace").setHTML(racePace(goal * (mod + 0.35), race) + " - "+ racePace(goal * (mod + 0.45), race));
+document.getElementById("zone3pace").setHTML(racePace(goal * (mod + 0.2), race)+" - "+ racePace(goal * (mod + 0.35), race));
+document.getElementById("zone4pace").setHTML(racePace(goal * (mod + 0.05), race)+" - "+ racePace(goal * (mod + 0.2), race));
+document.getElementById("zone5pace").setHTML(racePace(goal * (mod - 0.1), race)+" - "+ racePace(goal * (mod + 0.05), race));
 
 //return workouts from JSON 
 
 fetch("/Rhedeg/workouts.json")
 .then(response => response.json())
 .then(data => {
-    console.log(data.workouts[0].name);
-    document.getElementById("zone1_workout_name").innerText = data.workouts[0].name
-    document.getElementById("zone1_workout_summary").innerText = data.workouts[0].summary
+    
+//loop through json and populate areas
+    for(var i = 0; i <data.workouts.length; i++){
+        debugger;
+        var obj = data.workouts[i];
+        var arr = obj.type;
+        if(arr == "recovery"){
+            const newWorkout = document.createElement("div");
+            const newContent = document.createTextNode(obj.name + " " + obj.summary);
+            newWorkout.appendChild(newContent);
+            const currentDiv = document.getElementById("zone1_workout_name");
+            const parentDiv = document.getElementById("zone1_workout_div");
+            parentDiv.insertBefore(newWorkout, currentDiv);
+        }
+        else if(arr == "easy"){
+            const newWorkout = document.createElement("div");
+            const newContent = document.createTextNode(obj.name + " " + obj.summary);
+            newWorkout.appendChild(newContent);
+            const currentDiv = document.getElementById("zone2_workout_name");
+            const parentDiv = document.getElementById("zone2_workout_div");
+            parentDiv.insertBefore(newWorkout, currentDiv);
+        }
+        else if(arr == "steady"){
+            const newWorkout = document.createElement("div");
+            const newContent = document.createTextNode(obj.name + " " + obj.summary);
+            newWorkout.appendChild(newContent);
+            const currentDiv = document.getElementById("zone3_workout_name");
+            const parentDiv = document.getElementById("zone3_workout_div");
+            parentDiv.insertBefore(newWorkout, currentDiv);
+        }
+        else if(arr == "tempo"){
+            const newWorkout = document.createElement("div");
+            const newContent = document.createTextNode(obj.name + " " + obj.summary);
+            newWorkout.appendChild(newContent);
+            const currentDiv = document.getElementById("zone4_workout_name");
+            const parentDiv = document.getElementById("zone4_workout_div");
+            parentDiv.insertBefore(newWorkout, currentDiv);
+        }
+        else if(arr == "speed"){
+            const newWorkout = document.createElement("div");
+            const newContent = document.createTextNode(obj.name + " " + obj.summary);
+            newWorkout.appendChild(newContent);
+            const currentDiv = document.getElementById("zone5_workout_name");
+            const parentDiv = document.getElementById("zone5_workout_div");
+            parentDiv.insertBefore(newWorkout, currentDiv);
+        }
+    }
 })
 
 

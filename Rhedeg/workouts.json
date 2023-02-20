@@ -3,27 +3,105 @@
         {
             "name": "400s",
             "type": "speed",
-            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
-            "stress": 7
+            "summary": "400 meters zone 5, 60 seconds off static, 12 reps",
+            "stress": 8
         },
          {
             "name": "800s",
             "type": "speed",
-            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
-            "stress": 7
+            "summary": "800 meters zone 5, 80 seconds off static, 6 reps",
+            "stress": 8
         },
         {
             "name": "Rolling 200s",
             "type": "speed",
-            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
+            "summary": "200 meters zone 5, slow jog recovery 200 meters zone 1, 10 reps",
             "stress": 7
         }
         ,
         {
-            "name": "Rolling 200s",
+            "name": "Minute hills",
             "type": "speed",
-            "summary": "This is such a great workout for the track. 1 effort = 1 loop",
+            "summary": "1 minute hill zone 5, jog back down to start zone 1, 12 reps",
+            "stress": 8
+        },
+        {
+            "name": "Ks",
+            "type": "speed",
+            "summary": "1000 meters zone 5, 90 seconds off static, 5 reps",
             "stress": 7
+        },
+        {
+            "name": "Miles",
+            "type": "tempo",
+            "summary": "1 mile zone 4, 90 seconds off static, 4 reps",
+            "stress": 7
+        },
+        {
+            "name": "5k tempo",
+            "type": "tempo",
+            "summary": "5k on zone 4",
+            "stress": 6
+        },
+        {
+            "name": "10k tempo",
+            "type": "tempo",
+            "summary": "10k on zone 4",
+            "stress": 6
+        },
+        {
+            "name": "Fartlek short",
+            "type": "speed",
+            "summary": "1 minutes zone 4, 1 minute zone 2, 10 reps",
+            "stress": 7
+        },
+        {
+            "name": "Fartlek yoyo",
+            "type": "tempo",
+            "summary": "2 minutes zone 4, 2 minute zone 3, 6 reps",
+            "stress": 6
+        },
+        {
+            "name": "Fartlek long",
+            "type": "tempo",
+            "summary": "5 minutes zone 4, 1 minute zone 2, 4 reps",
+            "stress": 6
+        },
+        {
+            "name": "30 minutes steady",
+            "type": "steady",
+            "summary": "30 minutes zone 3",
+            "stress": 4
+        },
+        {
+            "name": "hour steady",
+            "type": "steady",
+            "summary": "1 hour zone 3",
+            "stress": 6
+        },
+        {
+            "name": "Easy 30",
+            "type": "easy",
+            "summary": "30 minutes zone 2",
+            "stress": 2
+        },
+        {
+            "name": "Easy hour",
+            "type": "easy",
+            "summary": "1 hour zone 2",
+            "stress": 3
+        },
+        {
+            "name": "Shakeout",
+            "type": "recovery",
+            "summary": "15minutes zone 1",
+            "stress": 1
+        },
+        {
+            "name": "recovery jog",
+            "type": "recovery",
+            "summary": "30 minutes zone 1",
+            "stress": 1
         }
     ]
 }
