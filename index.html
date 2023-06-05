@@ -12,7 +12,12 @@
       type="text/javascript"
     ></script>
     <script src="test.js"></script>
-
+    <script>
+      (async function() {
+          const { text } = await( await fetch(`/api/message`)).json();
+          document.querySelector('#name').textContent = text;
+      }());
+      </script>
   </head>
 
   <body>
