@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>OS Vector Tile API | Example Add Overlay | MapLibre GL JS</title>
+    <link rel="stylesheet" href="https://labs.os.uk/public/os-api-branding/v0.3.1/os-api-branding.css" />
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://labs.os.uk/public/os-api-branding/v0.3.1/os-api-branding.js"></script>
+<script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<script>
+
+    const apiKey = 'F8XAUp4IrvziU0YV27B8PYbqBOANYORS';
+
+    // Create a map style object using the ZXY service.
+    const style = {
+        "version": 8,
+        "sources": {
+            "raster-tiles": {
+                "type": "raster",
+                "tiles": [ "https://api.os.uk/maps/raster/v1/zxy/Outdoor_3857/{z}/{x}/{y}.png?key=" + apiKey ],
+                "tileSize": 256
+            }
+        },
+        "layers": [{
+            "id": "os-maps-zxy",
+            "type": "raster",
+            "source": "raster-tiles"
+        }]
+    };
+
+    // Initialize the map object.
+    const map = new maplibregl.Map({
+        container: 'map',
+        minZoom: 6,
+        maxZoom: 15,
+        style: style,
+        maxBounds: [
+            [ -10.76418, 49.528423 ],
+            [ 1.9134116, 61.331151 ]
+        ],
+        center: [ -1.485, 52.567 ],
+        zoom: 7
+    });
+
+    map.dragRotate.disable(); // Disable map rotation using right click + drag.
+    map.touchZoomRotate.disableRotation(); // Disable map rotation using touch rotation gesture.
+
+    // Add navigation control (excluding compass button) to the map.
+    map.addControl(new maplibregl.NavigationControl({
+        showCompass: false
+    }));
+
+    map.on('load', function() {
+        // Add a source for the boundary polygons.
+        map.addSource("boundaries", {
+            "type": "vector",
+            "tiles": [ "https://api.os.uk/maps/vector/v1/vts/boundaries/tile/{z}/{y}/{x}.pbf?srs=3857&key=" + apiKey ]
+        });
+
+        // Add a layer showing the boundary polygons.
+        // Filter expression is used to display County and Greater London Authority polygons only.
+        map.addLayer({
+            "id": "boundaries-layer",
+            "type": "fill",
+            "source": "boundaries",
+            "source-layer": "Boundary_line",
+            "layout": {},
+            "paint": {
+                "fill-color": "rgba(175, 88, 186, 0.3)",
+                "fill-outline-color": "rgba(175, 88, 186, 1)"
+            },
+            "filter": [ "in", "AREA_CODE", "CTY", "GLA" ]
+        });
+
+        // When a click event occurs on a feature in the boundaries layer, open a popup at the
+        // location of the click, with name HTML from its properties.
+        map.on('click', 'boundaries-layer', function(e) {
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties.NAME)
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the boundaries layer.
+        map.on('mouseenter', 'boundaries-layer', function() {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'boundaries-layer', function() {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+
+</script>
+
+</body>
+</html>
