@@ -100,8 +100,8 @@ window.addEventListener("load", () => {
           bestTimeToGo.textContent = humanBestDate;
 
 //CHART TIME
-const ctx = document.getElementById('chart').getContext('2d');
-const myChart = new Chart(ctx, {
+var ctx = document.getElementById('myChart').getContext('2d');
+new Chart(ctx, {
     
     type: 'line',
     data: {
