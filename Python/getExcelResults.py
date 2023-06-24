@@ -1,22 +1,7 @@
-import requests
+import pandas as pd
 
-# Define the necessary parameters
-access_token = "<your_access_token>"
-file_url = "<file_url>"
+file_path = "/workspaces/my_cv.github.io/ParcBrynBachRunningClub.xlsx"
+df = pd.read_excel(file_path)
 
-# Set up the HTTP headers
-headers = {
-    "Authorization": "Bearer " + access_token
-}
-
-# Make the GET request to retrieve the file
-response = requests.get(file_url, headers=headers)
-
-# Check the response status code
-if response.status_code == 200:
-    # File retrieval successful
-    file_data = response.content
-    # Process the file data as needed
-else:
-    # File retrieval failed
-    print("Error: Failed to retrieve the file. Status code:", response.status_code)
+  
+print(df)  
