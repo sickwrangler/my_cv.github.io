@@ -11,13 +11,13 @@ season_bests = df.query("Best == 'SB'")
 latest_sbs = season_bests.head(25)
 #print(latest_sbs)
 
-club_record = df.query("`Club Record` == 'Y'")
+club_record = df.query("`Club Record` == 'Y' & Sex == 'W' & `Age Category` == 'SEN'")
 
-print(club_record)
+#print(club_record)
 
 # first way
-#sorted = club_record.sort_values(['Date'], ascending = [True])
+sorted = club_record.sort_values(['Date'], ascending = [True])
 
-#first = sorted.groupby('Distance').first().reset_index()
+first = sorted.groupby('Distance').first().reset_index()
 
-#print(sorted)
+print(first)
