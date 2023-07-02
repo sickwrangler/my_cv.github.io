@@ -24,12 +24,24 @@ latest_sbs = latest_sbs.drop(columns=columns_to_remove)
 #first = sorted.groupby('Distance').first().reset_index()
 #print(first)
 
-pb_html_table = latest_pbs.to_html()
-sb_html_table = latest_sbs.to_html()
+pb_html_table = latest_pbs.to_html(classes='data-table')
+sb_html_table = latest_sbs.to_html(classes='data-table')
 
-text_file = open("/workspaces/my_cv.github.io/canlyniadaur/PBResultsTable.html", "w")
-text_file.write(pb_html_table)
-text_file.close()
+with open("/workspaces/my_cv.github.io/canlyniadaur/ClubActivities.HTML", "r") as file:
+    existing_html = file.read()
+
+# Define the placeholder element
+placeholder = '<!-- INSERT_PANDAS_HTML -->'
+
+# Replace the placeholder with the generated HTML
+modified_html = existing_html.replace(placeholder, pb_html_table)
+
+# Save the modified HTML to a file
+with open('output.html', 'w') as file:
+    file.write(modified_html)
+
+
+
 text_file = open("/workspaces/my_cv.github.io/canlyniadaur/SBResultsTable.html", "w")
 text_file.write(sb_html_table)
 text_file.close()
