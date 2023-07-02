@@ -28,3 +28,7 @@
   background-color: royalblue;
   color: white;
 }
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+  }
