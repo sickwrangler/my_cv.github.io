@@ -1,7 +1,7 @@
 import pandas as pd
 
 #get CSV data and turn this into a dataframe
-file_path = "/workspaces/my_cv.github.io/ParcBrynBachResults - Results (All Time).csv"
+file_path = "/workspaces/my_cv.github.io/canlyniadaur/ParcBrynBach020723 - Results (All Time).csv"
 df = pd.read_csv(file_path)
   
 #Get the 25 recent PBs
@@ -24,4 +24,6 @@ latest_sbs = season_bests.head(25)
 
 pb_html_table = latest_pbs.to_html()
 
-print(pb_html_table)
+text_file = open("/canlyniadaur/PBResultsTable.html", "w")
+text_file.write(pb_html_table)
+text_file.close()
