@@ -5,18 +5,6 @@ import re
 file_path = "/workspaces/my_cv.github.io/canlyniadaur/ParcBrynBachResults - Results (All Time) (1).csv"
 df = pd.read_csv(file_path)
 
-#Get the 25 recent PBs
-personal_bests = df.query("Best == 'PB'")
-latest_pbs = personal_bests.head(25)
-columns_to_remove = ['Sex', 'Age Position','Gender Position', 'Best', 'Club Record', 'Location' ]
-latest_pbs = latest_pbs.drop(columns=columns_to_remove)
-
-#Get the 25 recent SBs
-season_bests = df.query("Best == 'SB'")
-latest_sbs = season_bests.head(25)
-columns_to_remove = ['Sex', 'Age Position','Gender Position', 'Best', 'Club Record', 'Location' ]
-latest_sbs = latest_sbs.drop(columns=columns_to_remove)
-
 #Get current club records
 
 # Function to convert time strings to timedelta format
@@ -60,6 +48,9 @@ all_time_df = all_time_df.reset_index(drop=True)
 # Format the time values with milliseconds
 all_time_df['Time'] = all_time_df['Time'].dt.total_seconds().apply(lambda x: pd.to_datetime(x, unit='s').strftime('%H:%M:%S.%f')[:-3])
 
+columns_to_remove = ['Sex', 'Age Position','Gender Position', 'Best', 'Club Record', 'Location' ]
+all_time_df = all_time_df.drop(columns=columns_to_remove)
+
 ###Now write it to a file
 pb_html_table = all_time_df.to_html(classes='data-table')
 
@@ -75,42 +66,3 @@ modified_html = existing_html.replace(placeholder, pb_html_table)
 # Save the modified HTML to a file
 with open('/workspaces/my_cv.github.io/canlyniadaur/ClubRecords.html', 'w') as file:
     file.write(modified_html)
-
-
-##########################################################################
-
-
-pb_html_table = latest_pbs.to_html(classes='data-table')
-
-with open("/workspaces/my_cv.github.io/canlyniadaur/TableTemplate.html", "r") as file:
-    existing_html = file.read()
-
-# Define the placeholder element
-placeholder = '<!-- INSERT_PANDAS_HTML -->'
-
-# Replace the placeholder with the generated HTML
-modified_html = existing_html.replace(placeholder, pb_html_table)
-
-# Save the modified HTML to a file
-with open('/workspaces/my_cv.github.io/canlyniadaur/ClubActivitiesPB.html', 'w') as file:
-    file.write(modified_html)
-
-
-#######################SB turn 
-
-sb_html_table = latest_sbs.to_html(classes='data-table')
-
-with open("/workspaces/my_cv.github.io/canlyniadaur/TableTemplate.html", "r") as file:
-    existing_html = file.read()
-
-# Define the placeholder element
-placeholder = '<!-- INSERT_PANDAS_HTML -->'
-
-# Replace the placeholder with the generated HTML
-modified_html = existing_html.replace(placeholder, sb_html_table)
-
-# Save the modified HTML to a file
-with open('/workspaces/my_cv.github.io/canlyniadaur/ClubActivitiesSB.html', 'w') as file:
-    file.write(modified_html)
-
-

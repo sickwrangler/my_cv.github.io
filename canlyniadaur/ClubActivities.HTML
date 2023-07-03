@@ -17,23 +17,49 @@
     <header-component></header-component>
     <script src="/Components/Navigation/Navigation_active.js" defer></script>
     <h1>Parc Bryn Bach Bests</h1>
+    <ul class="tab-links">
+      <li><a href="#table1">Personal bests</a></li>
+      <li><a href="#table2">Season bests</a></li>
+      <li><a href="#table3">Club records</a></li>
+  </ul>
+  <div id="table1" class="tab-content">
     <h2>Latest personal bests</h2>
     <iframe src="ClubActivitiesPB.html" id="PBResultsTable" height="1200px" width="100%" frameborder="0" ></iframe>
+  </div>
+  <div id="table2" class="tab-content">
     <h2>Latest season bests</h2>
     <iframe src="ClubActivitiesSB.html" id="SBResultsTable" height="1200px" width="100%" frameborder="0"></iframe>
-    <!-- <script src="/Components/Navigation/Navigation_active.js" defer></script>
+  </div>
+  <div id="table3" class="tab-content">
+    <h2>Latest season bests</h2>
+    <iframe src="ClubRecords.html" id="RecordsTable" height="1200px" width="100%" frameborder="0"></iframe>
+  </div>
+  <script>
+    // Add event listeners to tab links
+    var tabLinks = document.querySelectorAll('.tab-links li a');
+    for (var i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetTab = this.getAttribute('href');
 
+            // Hide all tab contents
+            var tabContents = document.querySelectorAll('.tab-content');
+            for (var j = 0; j < tabContents.length; j++) {
+                tabContents[j].style.display = 'none';
+            }
 
-    <iframe src="https://onedrive.live.com/embed?cid=025450ED94329A88&resid=25450ED94329A88%21590&authkey=AKal_kM8Kbsho-4&em=2" width="1000" height="700" frameborder="0" scrolling="no"></iframe>
+            // Show the selected tab content
+            document.querySelector(targetTab).style.display = 'block';
 
-
-     Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-  <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
-
-  <!-- Load our React component. -->
-  <!-- <script src="Components/like_button.js"></script> --> 
+            // Update active tab link
+            var activeLinks = document.querySelectorAll('.active');
+            for (var k = 0; k < activeLinks.length; k++) {
+                activeLinks[k].classList.remove('active');
+            }
+            this.classList.add('active');
+        });
+    }
+</script>
 
   </body>
 </html>
