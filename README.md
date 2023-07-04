@@ -14,6 +14,17 @@ Simple webapplication that looks at weather data and tells you the best time to 
 ### Map
 Random map project something to do with OS Datahub.
 #### Map ideas
+- Running race course analyse website
+- Load in route
+- show map with gradient information
+- show ground surface
+- show technical sections (corners, steep, rough terrain, obstacles)
+- overlay weather date for race date
+- Build in fueling strategy
+- Gear selection (shoes, layers, poles)
+- Build a race strategy for different types of runners
+- Build dataset of courses - link to results from webscraper, build predictive models of race performances. 
+
 
 ### Rhedeg
 Week training planning app using interactive UI with cards. 
