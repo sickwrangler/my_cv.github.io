@@ -4,6 +4,7 @@
     "webpack": "^5.88.1"
   },
   "scripts": {
+    "webpack": "webpack",
     "build": "npm run webpack"
   }
 }
