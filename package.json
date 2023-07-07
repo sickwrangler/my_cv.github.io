@@ -1,11 +1,6 @@
 {
   "dependencies": {
-    "chart.js": "^4.3.0",
-    "webpack": "^5.88.1"
-  },
-  "scripts": {
-    "webpack": "webpack",
-    "build": "npm run webpack"
+    "chart.js": "^4.3.0"
   }
-}
 
+ 
