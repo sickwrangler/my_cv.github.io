@@ -3,7 +3,6 @@
     "chart.js": "^4.3.0"
   },
   "scripts": {
-    "build": "your build command here",
-    "build:azure": "your build command here"
+    "build": "npm run webpack"
   }
 }
