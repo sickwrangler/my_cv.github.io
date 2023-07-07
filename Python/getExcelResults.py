@@ -50,7 +50,10 @@ def convert_time(time_str):
 # Convert 'Time' column to timedelta format
 df['Time'] = df['Time'].apply(convert_time)
 # Filter records where 'Club Record' is 'Y'
-filtered_df = df[df['Club Record'] == 'Y']
+#filtered_df = df[df['Club Record'] == 'Y']
+# Filter records where 'Club Record' is 'Y' and distance is in the specified list
+distances = ['3k', '5k', '10k', 'HM', 'M', 'parkrun']
+filtered_df = df[(df['Club Record'] == 'Y') & (df['Distance'].isin(distances))]
 # Find the all-time records for each distance, gender, and age category
 all_time_records = filtered_df.groupby(['Distance', 'Sex', 'Age Category'])['Time'].idxmin()
 # Create a new DataFrame with the all-time records
@@ -58,8 +61,8 @@ all_time_df = filtered_df.loc[all_time_records]
 # Reset the index of the new DataFrame
 all_time_df = all_time_df.reset_index(drop=True)
 # Format the time values with milliseconds
-all_time_df['Time'] = all_time_df['Time'].dt.total_seconds().apply(lambda x: pd.to_datetime(x, unit='s').strftime('%H:%M:%S.%f')[:-3])
-
+#all_time_df['Time'] = all_time_df['Time'].dt.total_seconds().apply(lambda x: pd.to_datetime(x, unit='s').strftime('%H:%M:%S.%f')[:-3])
+print(all_time_df)
 ###Now write it to a file
 pb_html_table = all_time_df.to_html(classes='data-table')
 
