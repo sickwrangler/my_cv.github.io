@@ -1,10 +1,13 @@
 class Header extends HTMLElement {
-    constructor() {
-      super();
-    }
-  
-  
+  constructor() {
+    super();
+  }
+
   connectedCallback() {
+    const basePath = window.location.pathname.startsWith("/my_cv.github.io/")
+      ? "/my_cv.github.io"
+      : "";
+
     this.innerHTML = `
     <style>
     /* Add a black background color to the top navigation */
@@ -14,7 +17,7 @@ class Header extends HTMLElement {
       z-index: 2;
       position: sticky;
     }
-    
+
     /* Style the links inside the navigation bar */
     .topnav a {
       float: left;
@@ -25,39 +28,32 @@ class Header extends HTMLElement {
       font-size: 17px;
       color: black;
     }
-    
+
     /* Change the color of links on hover */
     .topnav a:hover {
       background-color: #ddd;
       color: black;
     }
-    
+
     /* Add a color to the active/current link */
     .topnav a.active {
       background-color: royalblue;
       color: white;
     }
-    
+
     </style>
 
-    <html>
-    <head>
-       
-    <link rel="stylesheet" type="text/css" href="top_nav_styles.css" />
-    </head>
     <div class="topnav">
-        <nav>
-        <a href="/index.html">Home</a>
-        <a href="/Rhedeg/rhedeg.HTML">Rhedeg</a>
-        <a href="/When/WhenShallIRun.HTML">When should you run?</a>
-        <a href="/Map/Map.HTML">Map</a>
-        <a href="/canlyniadaur/ClubActivities.HTML">Club activities</a>
-    </nav>
-      </div>
-     
-    
-    </html>
+      <nav>
+        <a href="${basePath}/index.html">Home</a>
+        <a href="${basePath}/Rhedeg/rhedeg.HTML">Rhedeg</a>
+        <a href="${basePath}/When/WhenShallIRun.HTML">When should you run?</a>
+        <a href="${basePath}/Map/Map.HTML">Map</a>
+        <a href="${basePath}/canlyniadaur/ClubActivities.HTML">Club activities</a>
+      </nav>
+    </div>
     `;
-    }
+  }
 }
-    customElements.define('header-component', Header);
+
+customElements.define("header-component", Header);
