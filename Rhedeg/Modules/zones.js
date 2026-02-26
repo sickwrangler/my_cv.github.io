@@ -68,7 +68,7 @@ window.onload = function () {
     racePace(goal * (mod + 0.05), race);
 
   // return workouts from JSON
-  fetch(new URL("../workouts.json", import.meta.url))
+  fetch("/Rhedeg/workouts.json")
     .then((response) => response.json())
     .then((data) => {
       // loop through json and populate areas
